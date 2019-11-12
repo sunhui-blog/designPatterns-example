@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="box">box</div>
+    <script type="text/javascript">
+      class dialog {
+        constructor() {
+          this.create();
+        }
+
+        create() {
+          const content = document.createElement('div');
+          content.innerHTML = 'content';
+          const box = document.getElementById('box');
+          box.append(content);
+        }
+      }
+
+      const loginDialog = {
+        instance: null,
+        create: function() {
+          if (!this.instance) {
+            this.instance = new dialog();
+          }
+        }
+      };
+
+      document.getElementById('box').onclick = function() {
+        loginDialog.create();
+      };
+    </script>
+  </body>
+</html>
